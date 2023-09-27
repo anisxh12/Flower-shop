@@ -1,2 +1,503 @@
-# Flower-shop
-An Ecommerce site made using html and css
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower shop</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,800;0,900;1,700&display=swap" rel="stylesheet">
+
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        list-style: none;
+        text-decoration: none;
+        scroll-behavior: smooth;
+    }
+
+    svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+        width: 100%;
+        height: 100%;
+		box-sizing: border-box;
+		display: block;
+		background-color: #e55472;
+        background-image: linear-gradient(to bottom, rgba(229,84,114, 0.8), #e55472);
+    }
+    
+    :root {
+        --bg-color: #fff;
+        --text-color: #010101;
+        --main-color: #e55472;
+        --2nd-color: #434343;
+        --other-color: #66666;
+        --big-font: 5rem;
+        --h2-font: 2.3rem;
+    
+    
+    }
+    
+    body {
+        color: var(--text-color);
+        background: var(--bg-color);
+    }
+    
+    header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        background: var(--bg-color);
+        box-shadow: 0 1px 6px 0 rgb(32 33 36/ 10%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 14%;
+        transition: all .50s ease;
+        
+    }
+
+    .logo {
+        height: auto;
+    }
+
+    .navbar {
+        display: flex;
+    }
+
+    .navbar a {
+        color: var(--text-color);
+        font-size: 15px;
+        font-weight: 400;
+        margin: 10px 20px;
+        transition: all .50s ease;
+    }
+
+    .navbar a:hover {
+        color: var(--main-color);
+    }
+
+    .icons {
+        display: flex;
+        align-items: center;
+    }
+
+    .icons i {
+       font-size: 25px;
+       color: var(--text-color);
+       margin-right: 5px;
+       margin-left: 20px;
+       transition: all .50s ease;
+    }
+
+    .icons i:hover {
+        transform: translate(-4px);
+        color: var(--main-color);
+    }
+
+    #menu-icon {
+        height: 30px;
+        width: 30px;
+        background: var(--text-color);
+        color: var(--bg-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        border-radius: 50%;
+        z-index: 10001;
+        cursor: pointer;
+        display: none;
+
+
+    }
+
+
+
+    .home-content {
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        margin-top: 200px;
+        margin-left: 50px;
+        font-size: 20px;
+       
+    }
+
+    .home-content h1 {
+        font-family: 'Leckerli One', cursive;
+        font-size: 45px;
+        line-height: 1.3;
+        
+    }
+
+    .btn {
+        padding: 18px 20px;
+        background: lightpink;
+        font-size: 14px;
+        border-radius: 20px;
+        transition: all .50s ease;
+        position: absolute;
+        color: var(--text-color);
+        margin-top: 20px;
+        font-weight: 500;
+    }
+
+    .banner {
+      width: 100px;
+      padding-top: 160px;
+      padding-right: 160px;
+      padding-left: 1104px;
+      padding-bottom: 160px;
+      background-color: lightpink;
+    }
+    
+    .new-content {
+        margin-top: 300px;
+        display: grid;
+        grid-template-columns: repeat(autofit , minmax(300px , auto));
+        align-items: center;
+        gap: 2.5rem;
+        margin: 4.5rem;
+        text-align: center;
+    }
+
+    .centre-text h2{
+        text-align: center;
+        font-size: var(--h2-font);
+        margin-top: 300px;
+        font-family: 'Leckerli One', cursive;
+
+    }
+
+    .row {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .row img {
+        width: 30%;
+        height: auto;
+        margin-bottom: 15px;
+        margin-left: 20px;
+    }
+
+    .row h4:hover {
+        color: var(--main-color);
+    }
+
+    .row .bbtn a {
+        padding: 5px 8px;
+        border-radius: 10px;
+        background-color: rgba(229,84,114, 0.8);
+        color: var(--bg-color);
+        position: relative;
+      
+    }
+
+    .blog-content {
+        width: 30%;
+        height: auto;
+        margin-bottom: 15px;
+        margin-left: 885px;
+        margin-top: 600px;
+        position: absolute;
+        margin-bottom: 500px;
+    }
+
+    .blog-content1 {
+        height: auto;
+        width: 30%;
+        margin-bottom: 10px;
+        margin-left: 500px;
+        margin-bottom: 400px;
+        position: absolute;
+        margin-bottom: 885px;
+    }
+
+    .blog-content2 {
+        height: auto;
+        width: 30%;
+        margin-bottom: 10px;
+        position: absolute;
+        margin-bottom: 885px;
+    }
+
+    .in-icon i{
+        vertical-align: middle;
+        color: var(--other-color);
+        font-size: 16px;
+        margin-left: 200px;
+        
+    }
+
+
+
+ 
+
+
+
+
+   
+
+
+
+  
+
+  
+
+    
+
+ 
+    </style>
+    
+</head>
+<body>
+
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+    <defs>
+        <linearGradient id="bg">
+            <stop offset="0%" style="stop-color:rgba(255,105,180)"></stop>
+            <stop offset="50%" style="stop-color:rgba(255,182,193)"></stop>
+            <stop offset="100%" style="stop-color:rgba(255,125,167)"></stop>
+        </linearGradient>
+        <path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
+    </defs>
+    <g>
+        <use xlink:href='#wave' opacity=".3">
+            <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      dur="10s"
+      calcMode="spline"
+      values="270 230; -334 180; 270 230"
+      keyTimes="0; .5; 1"
+      keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+      repeatCount="indefinite" />
+        </use>
+        <use xlink:href='#wave' opacity=".6">
+            <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      dur="8s"
+      calcMode="spline"
+      values="-270 230;243 220;-270 230"
+      keyTimes="0; .6; 1"
+      keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+      repeatCount="indefinite" />
+        </use>
+        <use xlink:href='#wave' opacty=".9">
+            <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      dur="6s"
+      calcMode="spline"
+      values="0 230;-140 200;0 230"
+      keyTimes="0; .4; 1"
+      keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+      repeatCount="indefinite" />
+        </use>
+    </g>
+</svg>
+
+<header>
+<h2 class="logo">Flowers</h2>
+
+
+<ul class="navbar">
+<li><a href="#">Home</a></li>
+<li><a href="#">Shop</a></li>
+<li><a href="#">Pages</a></li>
+<li><a href="#">Contact Us</a></li>
+</ul>
+
+<div class="icons">
+    <a href="#"><i class='bx bx-shopping-bag'></i></a>
+    <a href="#"><i class='bx bx-phone'></i></a>
+    <a href="#"><i class='bx bx-heart'></i></a>
+    <div class="menu" id="menu-icon"></div>
+
+</div>
+
+</header>
+
+<section>
+<div class="home-content">
+    <h1>Seek Serenity for yourself</h1><br>
+    <p>A variety of blossoms. Delivery can be made worldwide</p>
+    <a href="#" class="btn">Pick A Bouquet</a>
+</div>
+</section>
+
+<section class="new-product">
+    <div class="centre-text">
+        <h2>new arrival items</h2>
+    </div>
+
+    <div class="new-content">
+        <div class="row">
+            <img src="flower1.jpg">
+            <h4>PINK FLOWER</h4>
+            <h5>£16.00</h5><br>
+            <div class="bbtn">
+                <a href="#">Add to Basket</a>
+            </div>
+        </div>
+        <div class="row">
+            <img src="flower2.jpg">
+            <h4>PINK FLOWER</h4>
+            <h5>£16.00</h5><br>
+            <div class="bbtn">
+                <a href="#">Add to Basket</a>
+            </div>
+        </div>
+        <div class="row">
+            <img src="flower3.jpg">
+            <h4>PINK FLOWER</h4>
+            <h5>£16.00</h5><br>
+            <div class="bbtn">
+                <a href="#">Add to Basket</a>
+            </div>
+        </div>
+        <div class="row">
+            <img src="flower4.jpg">
+            <h4>PINK FLOWER</h4>
+            <h5>£16.00</h5><br>
+            <div class="bbtn">
+                <a href="#">Add to Basket</a>
+            </div>
+        </div>
+        <div class="row">
+            <img src="flower5.jpg">
+            <h4>PINK FLOWER</h4>
+            <h5>£16.00</h5><br>
+            <div class="bbtn">
+                <a href="#">Add to Basket</a>
+            </div>
+        </div>
+        <div class="row">
+            <img src="flower6.jpg">
+            <h4>PINK FLOWER</h4>
+            <h5>£16.00</h5><br>
+            <div class="bbtn">
+                <a href="#">Add to Basket</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog">
+    <div class="centre-text">
+        <h2>Latest News</h2>
+    </div>
+
+    
+    <div class="blog-content1">
+        <div class="main-box">
+            <div class="box-img">
+                <img src="blog1.jpg">
+            </div>
+            <div class="in-bxx">
+                <div class="in-text">
+                    <p>Jan 23 , 2023</p>
+                </div>
+                <div class="in-icon">
+                    <a href="#"><i class='bx bx-message-rounded'></i>50</a>
+                    <p>Lorem ipsum dolor sit amet. Aut praesentium nostrum ex iste quia</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-box">
+            <div class="box-img">
+                <img src="blog1.jpg">
+            </div>
+            <div class="in-bxx">
+                <div class="in-text">
+                    <p>Mar 07 , 2023</p>
+                </div>
+                <div class="in-icon">
+                    <a href="#"><i class='bx bx-message-rounded'></i>50</a>
+                    <p>Lorem ipsum dolor sit amet. Aut praesentium nostrum ex iste quia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="blog-content2">
+        <div class="main-box">
+            <div class="box-img">
+                <img src="blog1.jpg">
+            </div>
+            <div class="in-bxx">
+                <div class="in-text">
+                    <p>Apr 14 , 2023</p>
+                </div>
+                <div class="in-icon">
+                    <a href="#"><i class='bx bx-message-rounded'></i>50</a>
+                    <p>Lorem ipsum dolor sit amet. Aut praesentium nostrum ex iste quia</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-box">
+            <div class="box-img">
+                <img src="blog1.jpg">
+            </div>
+            <div class="in-bxx">
+                <div class="in-text">
+                    <p>Jun 31, 2023</p>
+                </div>
+                <div class="in-icon">
+                    <a href="#"><i class='bx bx-message-rounded'></i>50</a>
+                    <p>Lorem ipsum dolor sit amet. Aut praesentium nostrum ex iste quia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact">
+<div class="contact-box">
+<h4>MY ACCOUNT</h4>
+<li><a href="#">My account</a></li>
+<li><a href="#">Checkout</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Shopping Cart</a></li>
+<li><a href="#">Wishlist</a></li>
+</div>
+
+<h4>QUICK LINKS</h4>
+<li><a href="#">Store locations</a></li>
+<li><a href="#">Orders tracking</a></li>
+<li><a href="#">Size quide</a></li>
+<li><a href="#">My account</a></li>
+<li><a href="#">FAQ'S</a></li>
+</div>
+
+</section>
+
+
+
+<script src="js/flowershop.js"></script>
+    
+</body>
+</html>
+
+
